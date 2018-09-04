@@ -1,0 +1,17 @@
+{
+  "name": "api-documentation-sandbox",
+  "version": "1.0.0",
+  "description": "Project to demonstrate the api blueprint capabilities and how it will fit the workflow in FTR",
+  "main": "index.js",
+  "scripts": {
+    "generateDocs": "node scripts/generateDocs",
+    "mock-server":"drakov --config config.js"
+  },
+  "author": "Milind",
+  "license": "ISC",
+  "dependencies": {
+    "aglio": "^2.3.0",
+    "drakov": "^1.0.4",
+    "npm-watch": "^0.3.0"
+  }
+}

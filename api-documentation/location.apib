@@ -1,0 +1,62 @@
+FORMAT: 1A
+HOST: http://inventory.ftr.com
+
+# Inventory api
+
+An API to get information about inventory equipments and locations.
+
+# Group Equipment Resource
+
+Group all the equipment related resources.
+
+## Equipments Collection
+
+### List all equipments [GET /equipments?subId={subId}]
+
++ Parameters
+    - subId: 370001594062 (string, optional) - Subscriber's id (USI)    
+
++ Response 200 (application/json)
+    + Attributes
+        - data (array[Equipment])
+
++ Response 404
+
+### Create new equipment [POST /equipments]
+
++ Request (application/json)
+
+    + Attributes
+        - locationId: 1423089881201 (required)
+        - subscriberId: 370001594062 (required)
+        - serialNumber: 30171R000007 (required)
+        - model: AM525 (required)
+        - userName: 'mjw424' (optional)     
+
++ Response 201
+    
+    + Headers
+
+            Location: /equipments/30171R000007
+
+
++ Response 409
+
+    + Body
+
+            {
+                "errorMessage": "The serial number already exists",
+                "developerMessage":"The serial number for the equipment is alredy in the system",
+                "developerErrorCode": "http://equipment-api-error-codes/E409"
+            }
+
+
+# Data Structures
+
+## Equipment (object)
+- serialNumber: 123455      (number, required) - searial number of an equipments
+- locationId: headend 1A    (string, required) - location of the equipments
+- model: hdhd               (string,required) - model number of the equipment
+- subscriberId: 123455      (string,required) - subscriber information 
+- status: aaaa              (string,required) - status of the equipment
+
