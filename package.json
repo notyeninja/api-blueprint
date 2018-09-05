@@ -4,7 +4,7 @@
   "description": "Project to demonstrate the api blueprint capabilities and how it will fit the workflow in FTR",
   "main": "index.js",
   "scripts": {
-    "generateDocs": "node scripts/generateDocs",
+    "generate-docs": "node scripts/generateDocs",
     "mock-server":"drakov --config config.js"
   },
   "author": "Milind",

@@ -13,14 +13,26 @@ Group all the equipment related resources.
 
 ### List all equipments [GET /equipments?subId={subId}]
 
+Get the list of equipments for a subscriber.
+
 + Parameters
     - subId: 370001594062 (string, optional) - Subscriber's id (USI)    
 
 + Response 200 (application/json)
-    + Attributes
-        - data (array[Equipment])
+    + Attributes (array[Equipment])        
+
+### Get equipment details [GET /equipments/{serialNumber}]
+
+Returns details of an equipment.
+
++ Parameters
+    - serialNumber: FD987654342 (string,required) - serial number of an equipment
+
++ Response 200 (application/json)
+    + Attributes (Equipment)
 
 + Response 404
+    + Attributes (Error)
 
 ### Create new equipment [POST /equipments]
 
@@ -42,13 +54,7 @@ Group all the equipment related resources.
 
 + Response 409
 
-    + Body
-
-            {
-                "errorMessage": "The serial number already exists",
-                "developerMessage":"The serial number for the equipment is alredy in the system",
-                "developerErrorCode": "http://equipment-api-error-codes/E409"
-            }
+    + Attributes (Error)
 
 
 # Data Structures
@@ -59,4 +65,9 @@ Group all the equipment related resources.
 - model: hdhd               (string,required) - model number of the equipment
 - subscriberId: 123455      (string,required) - subscriber information 
 - status: aaaa              (string,required) - status of the equipment
+
+## Error (object)
+- errorMessage: "The sample error message.",
+- developerMessage: "The message for developers that can be used for diagnosis.",
+- developerErrorCode: "A url to get more information about the error."
 

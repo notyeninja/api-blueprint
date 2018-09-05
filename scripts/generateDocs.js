@@ -25,6 +25,6 @@ fs.watch('api-documentation',(eventType,file) => {
     //create the api documentation files.
     aglio.renderFile(filepathToRead,filepathToWrite,blueApiOptions,(err,warning) => {
           if(err) console.log(err);
-          //if(warning) console.log(warning);
+          if(warning) console.log(warning);
     })  
 });
