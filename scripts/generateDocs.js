@@ -19,8 +19,8 @@ fs.watch('api-documentation',(eventType,file) => {
     var filepathToWrite = path.join(outputFileDir, outputFile);    
 
     //diagnostics for testing
-    console.log('reading file from: ' + filepathToRead);
-    console.log('writing file to: ' + filepathToWrite);  
+    //console.log('reading file from: ' + filepathToRead);
+    //console.log('writing file to: ' + filepathToWrite);  
 
     //create the api documentation files.
     aglio.renderFile(filepathToRead,filepathToWrite,blueApiOptions,(err,warning) => {
